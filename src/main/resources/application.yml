@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: otoken-config
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/otoken/otoken-config
+          search-paths: respo
+          username: otoken
+          password: otoken
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
